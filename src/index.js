@@ -1,13 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import UserContainer from "./UserContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserForm from "./UserForm";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<UserContainer />} />
+        <Route exact path="/add" element={<UserForm />} />
+        <Route exact path="/edit/:id" element={<UserForm />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
